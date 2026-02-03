@@ -1,0 +1,366 @@
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  height: 100%; 
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #111; 
+  background: linear-gradient(to right, #f4f4f4, #e4e4e4); 
+  overflow: hidden; 
+}
+
+header { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 70px; 
+  background-color: #fff; 
+  border-bottom: 1px solid #ccc; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 0 60px; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+  z-index: 100; 
+}
+
+#header-left-side {
+  display: flex; /* Flexbox para sa logo ug title */
+  align-items: center; /* Align items vertically para macenter */
+  gap: 10px; /* Gap between logo and title */
+  font-family: 'Lucida Handwriting', cursive;  /* FONT STYLE para sa title */
+}
+
+#header-left-side img { /* para sa logo sa header */
+  height: 35px; /* HEIGHT para sa logo, estimated size ra */
+}
+
+#icons { /* Navigation bar sa header */
+  display: flex; /* Flexbox para sa icons */
+  gap: 2em; /* Gap between icons */
+}
+
+#icons a { /* Style para sa navigation links */
+  text-decoration: none; /* Remove underline kay samok */
+  color: #333; /* TEXT COLOR */
+  font-weight: 500; /* FONT WEIGHT how thick ang fonts */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+#icons a:hover { /* Hover effect for nav links */
+  color: #000; /* Darker color on hover */
+}
+
+/* DISABLED LINK STATE sa tanang unless maglogin */
+.disabled-link { 
+  pointer-events: none; /* - pointer-events para prevent of clicking */
+  opacity: 0.5; /* visually indicates disabled state sa link */
+}
+
+/* MAIN CONTENT */
+main, section { /* Base styles for main and section elements */
+  height: calc(100vh - 110px);  /* Full viewport height minus header and footer heights */
+  display: flex; /* Flexbox for centering content */
+  align-items: center; /* Center items vertically para macenter*/
+  justify-content: center; /* Center items horizontally para macenter */
+  padding-top: 70px; /* para ang content is below the fixed header */
+}
+
+/* LOGIN PAGE */
+#content-wrapper { 
+  display: flex; /* Flexbox para sa tagline ug login box */
+  justify-content: space-between; /* Space between tagline ug login box */
+  align-items: center; /* Align items vertically para macenter */
+  width: 80%; /* estimated rani ang kalapdon */
+  max-width: 1200px; /* Max width para dili kaayo dako sa wide screens */
+  height: 100%; /* Full height */
+}
+
+#tagline {
+  flex: 1; /* Flex number para sa first 2 lines sa tagline */
+  display: flex; /* Flexbox para sa first 2 lines sa tagline text */
+  flex-direction: column; /* Column direction para vertical iya direction */
+  justify-content: center; /* Center vertically */
+  padding-left: 2em; /* Padding left para naay space sa left side */
+}
+
+#tagline h2 { /* last line sa tagline */
+  font-size: 2.8em; /* FONT SIZE para sa second line sa tagline */
+  font-weight: 400; /* FONT WEIGHT para sa second line sa tagline */
+  color: #111; /* TEXT COLOR */
+  margin-bottom: 0.2em; /* Margin bottom para naay gamay space sa ubos */
+}
+
+#tagline h1 {
+  font-size: 3.2em; /* FONT SIZE para sa first 2 lines sa tagline */
+  color: #000; /* TEXT COLOR */
+}
+
+/* LOGIN BOX */
+.form-box { 
+  flex: 0.8; 
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 12px;
+  padding: 32px 40px; 
+  width: 100%; 
+  max-width: 380px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+  display: none; /* initially hidden, will be shown when needed */
+}
+
+.form-box.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-box h2 {
+  text-align: center; /* Centered text para sa login title */
+  color: #000; /* TEXT COLOR */
+  margin-bottom: 25px; /* Margin bottom para naay space sa ubos */
+  font-size: 1.6em; /* FONT SIZE para sa login title */
+}
+
+.form-box form { /* Form where asa ang sulod sa content */
+  display: flex; /* Flexbox para sa form layout */
+  flex-direction: column; /* Column direction para vertical iya direction */
+  gap: 16px; /* consistent spacing between form groups */
+}
+
+.form-box label { /* Labels para sa input fields like sa username ug password */
+  font-size: 0.95em; 
+  margin-bottom: 6px; /* slightly more space below labels */
+  color: #222; /* darker for better contrast */
+  font-weight: 500; /* medium weight for emphasis */
+}
+
+.form-box input { /* Input fields para sa username ug password */
+  padding: 12px 14px; /* slightly wider horizontal padding */
+  border: 1px solid #ccc; /* light colorborder SOLID */
+  border-radius: 8px; /* rounded corners para sa input fields para di pointed*/
+  background: #fafafa; /* light background color */
+  font-size: 1em; /* FONT SIZE */
+  margin-bottom: 8px; /* space after inputs */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transitions for focus effects tahay*/
+}
+
+.form-box input:focus { /* Focus state para sa input fields */
+  border-color: #000; /* BORDER COLOR again */
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1); /* slightt shadow sa box nm */
+  background: #fff; /* BACKGROUND COLOR again */
+}
+
+.form-box button { /* Login button style rani sya*/
+  background-color: #111; /* DARK BACKGROUND COLOR para contrast */
+  color: #fff; /* TEXT COLOR para contrast */
+  border: none; /* No border para limpyo tahay sir */
+  padding: 14px; /* taller button for better tap target */
+  border-radius: 8px; /* rounded corners para sa button para di pointed*/
+  cursor: pointer; /* change ang cursor into pointer if naa na sa button */
+  margin-top: 8px; /* space above button */
+  font-weight: 500; /* FONT WEIGHT */
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s; /* Smooth transitions para sa hover effects */
+}
+
+.form-box button:hover { /* Hover effect if iclick ang button */
+  background-color: #333; /* Lighter background on hover */
+  transform: translateY(-1px); /* slight move up effect */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* slight shadow on hover */
+}
+
+/* Signup below sa login form BUT DI PA SYA MUGANA*/
+.signup-text { /* Signup text below the login form */
+  text-align: center; /* Centered text */
+  font-size: 0.9em; /* FONT SIZE */
+  margin-top: 20px; /* more space above signup text */
+  color: #555; /* TEXT COLOR */
+}
+
+.signup-text a { /* Signup link style */
+  color: #000; /* TEXT COLOR */
+  text-decoration: none; /* Remove underline sa link kay samok */
+  font-weight: 500; /* FONT WEIGHT */
+}
+
+.signup-text a:hover { text-decoration: underline; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  color: #666;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message{
+  padding: 10px;
+  background-color: #f8d7da;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #721c24;
+  text-align: center ;
+  margin-bottom: 20px;
+}
+
+.home-content { /* Container para sa home page content */
+  text-align: center; /* Centered text */
+  width: 80%; /* estimated rani ang kalapdon depende if bagay*/
+  max-width: 1000px; /* Max width para dili kaayo dako sa wide screens */
+  color: #111; /* TEXT COLOR */
+}
+
+.home-content h1 { /* Main title sa home page para sa introduction */
+  font-size: 2.8em; /* FONT SIZE */
+  margin-bottom: 10px; /* Margin bottom para naay space sa ubos */
+}
+
+.home-content p { /* Paragraph text sa home page katung naay introduction tahay*/
+  font-size: 1.2em; /* FONT SIZE */
+  color: #444; /* TEXT COLOR */
+  margin-bottom: 30px; /* Margin bottom para naay space sa ubos */
+}
+
+.home-grid { /* Grid container para sa home page cards katung features tahay or advantages */
+  display: flex; /* Flexbox para sa layout */
+  justify-content: space-around; /* Space around para even ang spacing */
+  gap: 20px; /* consistent spacing between cards */
+}
+
+.home-card { /* Individual card style para sa home page features */
+  background-color: #fff;  /* BACKGROUND COLOR */
+  border: 1px solid #ccc; /* BORDER SOLID para maemphasize each card */
+  border-radius: 12px; /* rounded corners para sa cards para di pointed */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.05); /* slight shadow effect para chuy*/
+  padding: 25px; /* Padding para sa sulod sa card para naay spacing gamay*/
+  flex: 1; /* Flex grow para equally sized ang cards */
+  max-width: 280px; /* Max width para sa cards */
+}
+
+.home-card h3 { /* title each card*/
+  font-size: 1.4em; /* FONT SIZE */
+  margin-bottom: 10px; /* Margin bottom para naay space sa ubos */
+  color: #000; /* TEXT COLOR */
+}
+
+.home-card p { /* paragraph text sa each card */
+  color: #555; /* TEXT COLOR */
+  font-size: 1em; /* FONT SIZE */
+}
+
+/* HOME PAGE STYLING */
+.home-page { /* Main container for home page overall */
+  display: flex; /* Flexbox para macenter */
+  justify-content: center; /* Center horizontally ang content*/
+  align-items: center; /* Center vertically ang content */
+  background: linear-gradient(180deg, #f3f3f3, #d4d4d4); /* BACKGROUND GRADIENT sa home page */
+  height: calc(100vh - 120px); /* fits header + footer */
+  overflow: hidden; /* para dili scrollable */
+  padding: 2em; /* Padding para naay space around the content */
+}
+
+.home-content { /* Home content container */
+  display: flex; /* Flexbox para sa layout sa content */
+  justify-content: space-between; /* Space between para evenly distributed */
+  align-items: center; /* Center vertically ang content */
+  width: 85%; /* Width para sa content */
+  gap: 3em; /* Gap between elements */
+  color: #111; /* TEXT COLOR */ 
+}
+
+.home-left { /* Left side content sa home page which is ang introduction text tahay*/
+  flex: 1; /* Flex para sa left side */
+  text-align: left; /* Left align ang text */
+}
+
+.home-left h1 { /* Main heading sa left side*/
+  font-size: 3em; /* FONT SIZE */
+  margin-bottom: 0.3em; /* Margin bottom para naay gamay space sa ubos */
+}
+
+.home-left span { /* Special styling para sa highlighted text sa heading which is ang name sa website*/
+  color: #000; /* TEXT COLOR */
+  font-family: 'Lucida Handwriting', cursive; /* FONT STYLE for highlighted text */
+}
+
+.intro-text { /* Introduction paragraph text sa home page */
+  font-size: 1.1em; /* FONT SIZE sa texts na naa adto*/
+  text-align: justify; /* Justify para tupong tanawon ang paragraph */
+  color: #333; /* TEXT COLOR which black*/
+  line-height: 1.5em;  /* Line height para mas sayon basahon */
+  margin-bottom: 0.5em; /* Margin bottom para naay space sa ubos */
+}
+
+.intro-subtext { /* Subtext paragraph sa home page */
+  font-size: 1em; /* FONT SIZE */
+  text-align: justify; /* Justify para tupong tanawon ang paragraph */
+  color: #555; /* TEXT COLOR */
+  margin-bottom: 1.5em; /* Margin bottom para naay space sa ubos */
+}
+
+.book-btn { /* Book Now button style ni sya */
+  padding: 0.9em 2.5em; /* Padding para sa button para naay space */
+  background: #111; /* DARK BACKGROUND COLOR which is black */
+  color: #fff; /* TEXT COLOR para minimalist */
+  border: none; /* No border para limpyo tahay sir */
+  border-radius: 8px; /* rounded corners para sa button para di pointed*/
+  font-size: 1em; /* FONT SIZE */
+  cursor: pointer; /* change ang cursor into pointer if naa na sa button */
+  transition: all 0.3s ease; /* Smooth transition para sa hover effect */
+}
+.book-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* Right Side Boxes */
+.home-right { /* Right side container sa home page which is ang boxes */
+  flex: 1; /* Flex para sa right side */
+  display: flex; /* Flexbox para sa layout sa boxes */
+  flex-direction: column; /* Column direction para vertical iya direction */
+  gap: 1.2em; /* Gap between boxes */
+}
+
+/* Add this to your existing CSS to fix the home page boxes */
+.service-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+.service-box h3 {
+  font-size: 1.2em;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.service-box p {
+  font-size: 0.9em;
+  color: #555;
+}
