@@ -69,12 +69,10 @@ if(isset($_POST['signup'])){
 
 
 
-    $_SESSION['email'] = $email;
-
-    header("Location: home.php"); // SUCCESS: Go to home
-
+    $_SESSION['email'] = $email; // Comment this out so they aren't logged in yet 
+    $_SESSION['login_error'] = "Signup successful! Please log in to your account."; 
+    $_SESSION['active_form'] = 'login'; header("Location: index.php"); // This sends them back to the login page
     exit();
-
 }
 
 
