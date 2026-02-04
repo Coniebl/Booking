@@ -42,7 +42,6 @@ window.showForm = function(formId) {
 
 
   // Show the requested form
-
   const targetForm = document.getElementById(formId);
 
   if (targetForm) {
