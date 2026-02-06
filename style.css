@@ -364,3 +364,183 @@ footer {
   font-size: 0.9em;
   color: #555;
 }
+
+/* SERVICES PAGE STYLING */
+.service-box { /* Individual service box style */
+  background: #fff; /* BACKGROUND COLOR */
+  border: 1px solid #ccc; /* BORDER SOLID para maemphasize each box */
+  border-radius: 12px; /* rounded corners para sa boxes para di pointed */
+  text-align: center; /* Centered text */ 
+  padding: 1.2em; /* Padding para sa sulod sa box para naay spacing gamay sa sulod */
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* slight shadow effect para chuy using RGBA*/
+  transition: transform 0.3s ease; /* Smooth transition para sa hover effect if matungod ang cursor */
+}
+
+.service-box:hover { /* Hover effect for service boxes */
+  transform: translateY(-5px); /* Slight move up effect estimated again kung unsay angayan*/
+}
+
+.service-box h3 { /* Title sa service box */
+  font-size: 1.3em; /* FONT SIZE */
+  color: #111; /* TEXT COLOR */
+  margin-bottom: 0.3em; /* Margin bottom para naay space sa ubos */
+}
+
+.service-box p { /* Paragraph text sa service box */ 
+  color: #555; /* TEXT COLOR */ 
+  font-size: 0.95em; /* FONT SIZE */
+  line-height: 1.4em; /* Line height para mas sayon basahon */
+}
+
+/* Make sure page doesn’t scroll like fixed ra sya*/
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.services-page {
+  position: relative;
+  background: linear-gradient(180deg, #f3f3f3, #d4d4d4);
+  /* iallow ang service page muflow normally instead of forcing na centered ra sya with fixed-height area */
+  display: block;
+  padding-top: 100px; /* ensure content sits below header */
+  padding-bottom: 140px; /* keep room above the fixed footer */
+}
+
+/* === SERVICES PAGE OVERRIDES === */
+.page-services { 
+  overflow: auto; /* allow page scrolling which is opposite sa nag una*/
+}
+.page-services main, /* make sure niya na ang main and section ignore ang global fixed heights */
+.page-services .services-container,
+.page-services section {
+  height: auto;
+  min-height: 0;
+}
+.services-page { 
+  padding-top: 100px; /* space below fixed header */
+  padding-bottom: 140px; /* leave room above fixed footer */
+}
+
+/* Title sa upper-left corner */
+.services-title {
+  position: absolute; /* absolute positioning para ma place siya sa upper-left corner */
+  top: 90px;
+  left: 80px;
+  font-size: 2.2em;
+  color: #111;
+  font-weight: 600;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.8em;
+  /* since 4 pa man ang rooms na ako gibutang sir, ako using itingob in one line */
+  flex-wrap: nowrap; 
+  width: 90%;
+  margin: 2.4em auto 0 auto;
+}
+
+.service-card { /* Individual service card style sa services*/
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1.2em 1.1em;
+  /* use flexible percentage sizing so that daghang cards mufit in one row on wide screens */
+  flex: 0 1 22%;
+  min-width: 220px;
+  max-width: 320px;
+  height: auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover { /* Hover effect for service cards if matungod ang cursor */
+  transform: translateY(-5px);
+}
+
+.service-card h3 { /* Title sa services offered */
+  margin-bottom: 0.5em; /* Margin bottom para naay space sa ubos */
+  color: #000;
+}
+
+.service-card p { /* Paragraph text sa services offered */
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.4em; /* Line height para mas sayon basahon */
+}
+
+.room-image { /* Image style sa service cards */
+  width: 80%;
+  height: 180px;
+  object-fit: cover; /* to maintain sa aspect ratio para sa images */
+  border-radius: 10px;
+  margin-bottom: 0.8em;
+}
+.room-details { /* Room details each container ni sya */
+  font-size: 0.9em;
+  color: #777;
+  width: 11px;
+}
+
+.book-now-btn { /* Book Now button style ni sya */
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer; /* change ang cursor into pointer if naa na sa button */
+  font-size: 0.95em;
+  transition: background 0.3s ease; /* Smooth transition para sa hover effect */
+}
+
+.book-now-btn:hover { /* Hover effect for Book Now button if iclick */
+  background: #333;
+}
+
+/* Popup Modal katung mugawas if iclick*/
+.popup {
+  position: fixed; /* Fixed position para pirmi makita ang popup if iclick*/
+  /* sio mao ni ang mga sizes and proportions */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* Ensure popup is above all other content */
+}
+
+.popup-content { /* Popup content box style */
+  background: #fff;
+  padding: 2em 3em;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* shadow effect for elevation */
+  max-width: 400px;
+}
+
+.popup-content p { /* text sa popup */
+  font-size: 1.2em;
+  color: #111;
+  margin-bottom: 1em;
+}
+
+#closePopup { /* Close button sa popup esp iclose */
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#closePopup:hover { /* Hover effect for close button if iclick */
+  background: #333;
+}

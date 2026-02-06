@@ -13,14 +13,16 @@ const logoutLink = document.getElementById('logout-link');
 // Kung naa ang login form (meaning naa ta sa login page)
 if (loginForm) {
   // I-disable ang tanan nav links para di makasulod ang user kung wala pa naka-login
-  navLinks.forEach(link => {
-    link.setAttribute('aria-disabled', 'true'); // i-set as disabled
-    link.classList.add('disabled-link'); // i-add ug style nga disabled
-    link.addEventListener('click', e => { // kung mu-click siya
-      e.preventDefault(); // ayaw tugoti nga mu-redirect
-      alert('Please log in first.'); // ipahibaw nga mag-login usa siya
-    });
+  // WITH THIS:
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    // Only block the click if the user is NOT logged in
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      e.preventDefault();
+      alert('Please log in first.');
+    }
   });
+});
 
   // Expose showForm globally so inline onclick handlers work
   window.showForm = function(formId) {
@@ -49,7 +51,7 @@ if (loginForm) {
         link.removeAttribute('aria-disabled'); // tangtanga ang disabled attribute
         link.classList.remove('disabled-link'); // tangtanga ang disabled style
       });
-      window.location.href = 'home.html'; // i-redirect sa home page
+      window.location.href = 'home.php'; // i-redirect sa home page
     } else {
       alert('Please enter valid credentials.'); // kung kulang ang input, ipakita alert
     }

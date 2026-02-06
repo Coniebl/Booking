@@ -48,10 +48,10 @@ function isActive($forName, $activeForm){
 
     <nav id="icons"> <!-- NAVIGATION BAR where naa ang mga laing files -->
         <!-- Use real hrefs for accessibility but disabled via js -->
-        <a href="home.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="help.html" class="nav-link">Help</a>
+        <a href="home.php" class="nav-link">Home</a>
+        <a href="services.php" class="nav-link">Services</a>
+        <a href="contact.php" class="nav-link">Contact</a>
+        <a href="help.php" class="nav-link">Help</a>
     </nav>
   </header>
 
