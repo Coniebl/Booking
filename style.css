@@ -517,19 +517,66 @@ html, body {
   z-index: 999; /* Ensure popup is above all other content */
 }
 
-.popup-content { /* Popup content box style */
+.popup-content {
   background: #fff;
-  padding: 2em 3em;
+  padding: 2.5em;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* shadow effect for elevation */
-  max-width: 400px;
+  text-align: left; /* Change from center to left for form labels */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 500px; /* Increased width to fit form fields */
+  width: 90%;
 }
 
 .popup-content p { /* text sa popup */
   font-size: 1.2em;
   color: #111;
   margin-bottom: 1em;
+}
+
+/* New Booking Form Styles */
+#hotel-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+#hotel-booking-form label {
+  font-weight: 500;
+  font-size: 0.9em;
+  color: #222;
+}
+
+#hotel-booking-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cancel-btn:hover {
+  background: #bbb;
+}
+
+#success-message {
+  text-align: center;
+  padding: 20px 0;
 }
 
 #closePopup { /* Close button sa popup esp iclose */

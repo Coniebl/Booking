@@ -75,12 +75,39 @@
     </div>
   </main>
 
-  <div id="popup" class="popup"> <!-- Popup container if ilang iclick ang BOOK NOW is mupop up ni showing confirmation-->
-    <div class="popup-content">
-      <p>Successfully booked!</p> <!-- Confirmation message-->
-      <button id="closePopup">OK</button> <!-- OK button to close the popup-->
+  <div id="popup" class="popup">
+  <div class="popup-content">
+    <div id="booking-form-container">
+      <h2>Complete Your Booking</h2>
+      <form id="hotel-booking-form">
+        <label for="pax_name">Full Name</label>
+        <input type="text" id="pax_name" name="pax_name" required placeholder="John Doe">
+
+        <label for="pax_count">Number of Pax</label>
+        <input type="number" id="pax_count" name="pax_count" required min="1">
+
+        <label for="booked_dates">Booking Date</label>
+        <input type="date" id="booked_dates" name="booked_dates" required>
+
+        <label for="pax_email">Email Address</label>
+        <input type="email" id="pax_email" name="pax_email" required value="<?= htmlspecialchars($_SESSION['email']) ?>">
+
+        <label for="pax_phone">Contact Number</label>
+        <input type="tel" id="pax_phone" name="pax_phone" required placeholder="09123456789">
+
+        <div class="form-buttons">
+          <button type="submit" class="book-now-btn">Submit Booking</button>
+          <button type="button" id="closePopup" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="success-message" style="display: none;">
+      <p style="font-size: 1.5em; color: green;">✔ Successfully booked!</p>
+      <button onclick="location.reload()" class="book-now-btn">OK</button>
     </div>
   </div>
+</div>
 
   <footer> <!-- Footer sa page-->
     © 2025 BookEase | All Rights Reserved

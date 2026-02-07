@@ -1,100 +1,93 @@
-/*
-  script.js
-  Para ni sa front-end behaviors sa demo site. Simple lang ni nga login, logout, ug booking popup.
-*/
+/* script.js */
 
-// Kuhaon tanan nav links sa page
-const navLinks = document.querySelectorAll('.nav-link');
-// Kuhaon ang login form kung naa sa page
-const loginForm = document.getElementsByClassName('form-box');
-// Kuhaon ang logout link kung naa
-const logoutLink = document.getElementById('logout-link');
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const loginBoxes = document.querySelectorAll('.form-box'); // Get all form boxes (Login & Signup)
 
-// Kung naa ang login form (meaning naa ta sa login page)
-if (loginForm) {
-  // I-disable ang tanan nav links para di makasulod ang user kung wala pa naka-login
-  // WITH THIS:
-navLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    // Only block the click if the user is NOT logged in
-    if (localStorage.getItem('loggedIn') !== 'true') {
-      e.preventDefault();
-      alert('Please log in first.');
+    // 1. Navigation Protection
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                e.preventDefault();
+                alert('Please log in first.');
+            }
+        });
+    });
+
+    // 2. Index Page (Login/Signup) Logic
+    if (loginBoxes.length > 0) {
+        // Expose showForm to the window so the 'onclick' in your HTML works
+        window.showForm = function(formId) {
+            loginBoxes.forEach(box => box.classList.remove('active'));
+            const targetForm = document.getElementById(formId);
+            if (targetForm) targetForm.classList.add('active');
+        };
+
+        // Allow forms to submit normally to login_signup.php while setting the login flag
+        loginBoxes.forEach(box => {
+            const form = box.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', () => {
+                    localStorage.setItem('loggedIn', 'true');
+                });
+            }
+        });
     }
-  });
-});
 
-  // Expose showForm globally so inline onclick handlers work
-  window.showForm = function(formId) {
-    // Hide all form boxes
-    const forms = document.querySelectorAll('.form-box');
-    forms.forEach(form => form.classList.remove('active'));
+    // 3. Services Page (Booking) Logic
+    const bookButtons = document.querySelectorAll('.book-now-btn');
+    const popup = document.getElementById('popup');
+    
+    if (bookButtons.length > 0 && popup) {
+        bookButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                popup.style.display = 'flex';
+                // Ensure the form shows and success message is hidden when opening
+                const formContainer = document.getElementById('booking-form-container');
+                const successMsg = document.getElementById('success-message');
+                if (formContainer) formContainer.style.display = 'block';
+                if (successMsg) successMsg.style.display = 'none';
+            });
+        });
 
-    // Show the requested form
-    const targetForm = document.getElementById(formId);
-    if (targetForm) {
-      targetForm.classList.add('active');
-    }
-  };
+        // Handle the Booking Form Submission popup transition
+        // 4. Handle Booking Form Submission
+  const bookingForm = document.getElementById('hotel-booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop page reload
 
-  // Kung i-submit ang form (login attempt)
+      // Create FormData from the form inputs
+      const formData = new FormData(this);
 
-  loginForm.addEventListener('submit', e => {
-    e.preventDefault(); // ayaw i-refresh ang page
-    const email = document.getElementById('email').value.trim(); // kuhaon ang email
-    const password = document.getElementById('password').value.trim(); // kuhaon ang password
-    // Kung naay sulod ang email ug password
-    if (email && password) {
-      localStorage.setItem('loggedIn', 'true'); // butangi ug flag nga naka-login na siya
-      // Enable balik ang mga nav links para makagamit na
-      navLinks.forEach(link => {
-        link.removeAttribute('aria-disabled'); // tangtanga ang disabled attribute
-        link.classList.remove('disabled-link'); // tangtanga ang disabled style
+      // Send data to add_booking.php
+      fetch('add_booking.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          // Only show the success message if the database saved successfully
+          document.getElementById('booking-form-container').style.display = 'none';
+          document.getElementById('success-message').style.display = 'block';
+        } else {
+          alert('Database Error: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Check if add_booking.php exists.');
       });
-      window.location.href = 'home.php'; // i-redirect sa home page
-    } else {
-      alert('Please enter valid credentials.'); // kung kulang ang input, ipakita alert
-    }
-  });
-}
-
-// Kuhaon tanan logout links sa page (id ug class)
-const logoutElements = document.querySelectorAll('#logout-link, .logout-link');
-
-// Kung naa mga logout links
-if (logoutElements.length) {
-  // Kung dili naka-login, balik sa index (login page)
-  if (localStorage.getItem('loggedIn') !== 'true') {
-    window.location.href = 'index.html';
+    });
   }
 
-  // Kung i-click ang logout link
-  logoutElements.forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault(); // ayaw i-redirect dayon
-      localStorage.removeItem('loggedIn'); // tangtanga ang login flag sa localStorage
-      alert('You have been logged out.'); // ipahibaw nga naka-logout na
-      window.location.href = 'index.html'; // balik sa main page
-    });
-  });
-}
-
-// Kung mu-click sa "Book Now" button
-document.querySelectorAll('.book-now-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const popup = document.getElementById('popup'); // kuhaon ang popup element
-    if (popup) popup.style.display = 'flex'; // ipakita ang popup kung naa
-  });
+        // Close/Cancel button logic
+        const closeBtn = document.getElementById('closePopup');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+        }
+    }
 });
-
-// Para sa close button sa popup
-const closePopupBtn = document.getElementById('closePopup');
-
-// Kung naa ang close but
-if (closePopupBtn) {
-  closePopupBtn.addEventListener('click', () => { // kung mu-click sa close
-    const popup = document.getElementById('popup'); // kuhaon balik ang popup
-    if (popup) popup.style.display = 'none'; // tagoa ang popup
-  });
-
-}
