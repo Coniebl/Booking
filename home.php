@@ -29,9 +29,9 @@ $username = htmlspecialchars(explode('@', $_SESSION['email'])[0]);
 
     <nav id="icons">
       <a href="home.php" class="nav-link active">Home</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="help.html" class="nav-link">Help</a>
+      <a href="services.php" class="nav-link">Services</a>
+      <a href="contact.php" class="nav-link">Contact</a>
+      <a href="help.php" class="nav-link">Help</a>
       <a href="logout.php" id="logout-link">Logout</a>
     </nav>
   </header>
@@ -48,7 +48,7 @@ $username = htmlspecialchars(explode('@', $_SESSION['email'])[0]);
         <p class="intro-subtext">
           From budget-friendly rooms to five-star getaways, we make booking smooth, smart, and stress-free.
         </p>
-        <button class="book-btn" onclick="window.location.href='services.html'">Book Now</button>
+        <button class="book-btn" onclick="window.location.href='services.php'">Book Now</button>
       </div>
 
       <div class="home-right">

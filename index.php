@@ -45,6 +45,14 @@ function isActive($forName, $activeForm){
       <img src="./assets/logo.png" alt="Logo" />
       <h1 class="headertitle">BookEase</h1>
     </div>
+
+    <nav id="icons"> <!-- NAVIGATION BAR where naa ang mga laing files -->
+        <!-- Use real hrefs for accessibility but disabled via js -->
+        <a href="home.php" class="nav-link">Home</a>
+        <a href="services.php" class="nav-link">Services</a>
+        <a href="contact.php" class="nav-link">Contact</a>
+        <a href="help.php" class="nav-link">Help</a>
+    </nav>
   </header>
 
   <main id="login-section">
