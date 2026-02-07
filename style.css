@@ -544,3 +544,247 @@ html, body {
 #closePopup:hover { /* Hover effect for close button if iclick */
   background: #333;
 }
+
+/* CONTACT PAGE STYLING*/
+body.page-contact {
+  background: linear-gradient(180deg, #f3f3f3, #d4d4d4); /* BACKGROUND GRADIENT sa contact page */
+  scroll-behavior: smooth; /* Smooth scrolling para mas nice sya sir */
+  overflow: auto;
+}
+
+/*MAJORITY ANI SIR BA KAY BALIK2 NA ANG FUNCTIONS MAONG GISKIP NALANG NAKO */
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 100px; 
+  padding-bottom: 80px; /* leave space para sa footer */
+  width: 100%;
+}
+
+.contact-section {
+  text-align: center; /* Centered text */
+  width: 80%;
+  max-width: 800px;
+}
+
+.contact-section h1 {
+  font-size: 2em; /* FONT SIZE which is another estimated ra */
+}
+
+.contact-section p {
+  color: #444;
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+
+/* Contact block container which is gi align vertically*/
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 800px; /* mao ni ang max width para sa contact block so di na muexceed ani na size*/
+}
+
+.contact-block h2 { /* texts sa contact block katung subheadings */
+  color: #111;
+  font-size: 1.6em;
+}
+
+.contact-block h3 {
+  color: #000;
+  margin-bottom: 5px;
+}
+
+/*kani is iframe na agoda na for chuy2 ra */
+iframe {
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100vh - 220px); /* viewport height minus header, footer and paddings */
+  min-height: 420px;
+  max-height: 1000px;
+}
+/* inner padding ni */
+.iframe-wrapper {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden; 
+}
+
+/* Skip link accessibility */
+.skip-link {
+  position: absolute; /* Absolute positioning para ma place siya outside sa viewport initially */
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus { /* Focus state para makita ang skip link if tabbed to */
+  left: 10px;
+  top: 80px;
+  width: auto;
+  height: auto;
+  background: #111;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  z-index: 200;
+}
+
+/* Contact form styling */
+.contact-form {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-form label {
+  font-size: 0.95em;
+  color: #222;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 1em;
+  resize: vertical; /* sa text area ni sya sir pabarog ang design resizing */
+}
+.contact-form button {
+  align-self: flex-start;
+  padding: 10px 18px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
+.page-contact main,
+.page-contact section {
+  height: auto;
+  min-height: 0;
+  /* keep contact page's own padding so content is pushed below fixed header */
+}
+
+/* Smaller screens tweaks para responsive */
+@media (max-width: 800px) {
+  header {
+    padding: 0 20px;
+  }
+  .contact-section,
+  .contact-block {
+    width: 94%;
+  }
+  iframe {
+    height: calc(100vh - 260px);
+    min-height: 360px;
+  }
+}
+/* FOOTER PAGE para sa footer*/
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  color: #666;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HELP PAGE STYLES */
+.page-help {
+  background: linear-gradient(180deg, #f7f7f7, #ececec);
+  overflow: auto; /* allow page scrolling */
+}
+/* Override fixed heights for help page */
+.help-main {
+  padding-top: 100px; /* below fixed header */
+  padding-bottom: 140px; /* above footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.help-hero { /* Hero section sa help page */
+  width: 86%;
+  max-width: 1000px;
+  text-align: center;
+}
+.help-hero h1 {
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+.faq-section {
+  width: 86%;
+  max-width: 1000px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.table-wrap {
+  overflow: auto;
+}
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+/* Table header styles */
+.faq-table thead th { 
+  text-align: left;
+  padding: 12px 14px;
+  background: #fafafa;
+  border-bottom: 2px solid #eee;
+}
+/* Table body styles */
+.faq-table tbody td {
+  padding: 14px;
+  vertical-align: top;
+  border-top: 1px solid #f0f0f0;
+}
+.faq-table tbody tr:nth-child(odd) td { /* Alternating row colors */
+  background: #fff;
+}
+.faq-table tbody tr:nth-child(even) td {
+  background: #fbfbfb;
+}
+.more-help {
+  margin-top: 16px;
+  text-align: center;
+}
+
+@media (max-width: 700px) { /* Responsive tweaks for help page */
+  .faq-table {
+    min-width: 0;
+    font-size: 0.95em;
+  }
+  .help-hero h1 {
+    font-size: 1.4em;
+  }
+}
