@@ -22,7 +22,7 @@
       <a href="home.php" class="nav-link">Home</a> <!-- Link to home page-->
       <a href="services.php" class="nav-link active">Services</a> <!-- Link to services page with active class since naa ta diri-->
       <a href="contact.php" class="nav-link">Contact</a> <!-- Link to contact page-->
-      <a href="help.php" class="nav-link">Help</a> <!-- Link to help page-->
+      <a href="my_bookings.php" class="nav-link">My Bookings</a> <!-- Link to help page-->
       <a href="logout.php" class="logout-link">Logout</a> <!-- Link to logout page-->
     </nav>
   </header>

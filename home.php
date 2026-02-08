@@ -31,7 +31,7 @@ $username = htmlspecialchars(explode('@', $_SESSION['email'])[0]);
       <a href="home.php" class="nav-link active">Home</a>
       <a href="services.php" class="nav-link">Services</a>
       <a href="contact.php" class="nav-link">Contact</a>
-      <a href="help.php" class="nav-link">Help</a>
+      <a href="my_bookings.php" class="nav-link">My Bookings</a>
       <a href="logout.php" id="logout-link">Logout</a>
     </nav>
   </header>

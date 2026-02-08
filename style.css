@@ -835,3 +835,9 @@ footer {
     font-size: 1.4em;
   }
 }
+
+/*MY BOOKINGS STYLES*/
+#page-my-bookings {
+  background: linear-gradient(180deg, #f7f7f7, #ececec);
+  overflow: auto;
+}

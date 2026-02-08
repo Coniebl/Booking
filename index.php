@@ -51,7 +51,7 @@ function isActive($forName, $activeForm){
         <a href="home.php" class="nav-link">Home</a>
         <a href="services.php" class="nav-link">Services</a>
         <a href="contact.php" class="nav-link">Contact</a>
-        <a href="help.php" class="nav-link">Help</a>
+        <a href="my_bookings.php" class="nav-link">My Bookings</a>
     </nav>
   </header>
 

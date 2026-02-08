@@ -24,7 +24,7 @@
         <a href="home.php" class="nav-link">Home</a> <!-- Link to home page -->
         <a href="services.php" class="nav-link">Services</a> <!-- Link to services page -->
         <a href="contact.php" class="nav-link active">Contact</a> <!-- Link to contact page but naa nata currently ari-->
-        <a href="help.php" class="nav-link">Help</a> <!-- Link to help page -->
+        <a href="my_bookings.php" class="nav-link">My Bookings</a> <!-- Link to help page -->
         <a href="logout.php" id="logout-link">Logout</a> <!-- Link to logout -->
       </nav>
     </header>
@@ -34,9 +34,51 @@
         <h1>Have questions in mind?</h1>
         <p>
           We’re here to help! Reach out to us directly through our support page or
-          contact one of our trusted partner hotels below.
+          contact one of our trusted partners below.
         </p>
       </section>
+
+      <section class="faq-section">
+        <h3>Frequently Asked Questions</h3>
+
+        <!-- mao nani ang FAQ table using TABLE-->
+        <div class="table-wrap">
+          <table class="faq-table" summary="Frequently asked questions and answers">
+            <thead> <!-- Table header for FAQ questions and answers -->
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>How do I make or cancel a booking?</td>
+                <td>To make a booking, go to Services, choose a hotel and follow the booking flow. To cancel, open your bookings in the main dashboard and select the reservation, then choose Cancel and follow the prompts. Check the cancellation policy before confirming.</td>
+              </tr>
+              <tr>
+                <td>What payment methods are accepted?</td>
+                <td>We accept major credit/debit cards (Visa, Mastercard), PayPal, and some local payment options depending on the property. You can view available methods at checkout.</td>
+              </tr>
+              <tr>
+                <td>Can I change my booking dates?</td>
+                <td>Yes — if the property allows modifications. Go to your booking details and choose Modify. Modifications may be subject to rate differences or fees depending on the property's policy.</td>
+              </tr>
+              <tr>
+                <td>How do I get a receipt or invoice?</td>
+                <td>Receipts are available in your account under 'My Bookings'. Open the booking and click 'Download receipt'. If you need a specific invoice, contact support and include your booking reference.</td>
+              </tr>
+              <tr>
+                <td>What if my preferred room is not available?</td>
+                <td>If the room type you want is sold out, consider selecting flexible dates or a nearby property. You can also add your email to alerts for availability or contact support for assistance.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </section>
+
+    <div>
+        <p class="more-help">Still need help? Open a support ticket.</p>
+    </div>
 
       <section class="contact-block" aria-labelledby="support-title"> <!-- Contact block section with aria-labelledby for accessibility tahay-->
         <h2 id="support-title">Contact Our Support Team</h2>
