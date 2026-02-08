@@ -912,38 +912,90 @@ footer {
 }
 
 /* Styling for the Edit Action Button */
-.edit-btn {
-    background-color: #111;
-    color: #fff;
-    border: none;
-    padding: 6px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85em;
-    transition: background 0.3s;
-}
-
-.edit-btn:hover {
-    background-color: #444;
-}
-
-/* Ensure popups are centered and look consistent */
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+/* Organized Layout for the Edit Popup */
+#editPopup .popup-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    align-items: center;
-    justify-content: center;
+    max-width: 450px; /* Slimmer, more organized width */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease-out; /* Smooth entrance */
 }
 
-.popup-content h2 {
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#editPopup h2 {
+    font-size: 1.6em;
+    color: #111;
     margin-bottom: 20px;
-    font-size: 1.5em;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 15px;
+}
+
+/* Form Grouping for Cleanliness */
+#edit-booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Consistent vertical spacing between fields */
+}
+
+#edit-booking-form label {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: -10px; /* Pulls label closer to its input */
+}
+
+#edit-booking-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-family: inherit;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+#edit-booking-form input:focus {
+    border-color: #111;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+}
+
+/* Button Organization */
+#edit-booking-form .form-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Equal width buttons side-by-side */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#edit-booking-form .book-now-btn {
+    margin-top: 0; /* Override previous margin */
+    padding: 12px;
+    font-weight: 500;
+}
+
+#edit-booking-form .cancel-btn {
+    background-color: #eee;
+    color: #333;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+#edit-booking-form .cancel-btn:hover {
+    background-color: #e0e0e0;
 }
