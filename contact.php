@@ -4,47 +4,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive design meta tag -->
-    <title>BookEase - Contact</title> <!-- Page title na makita sa tab sa ibabaw-->
-    <link rel="icon" type="image/png" href="./assets/logo.png" /> <!-- icon or logo na akita again sa tab -->
-    <link rel="stylesheet" href="style.css" /> <!-- Link para sa external CSS file -->
-    <script defer src="script.js"></script> <!-- Link para sa external JavaScript file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>BookEase - Contact</title> 
+    <link rel="icon" type="image/png" href="./assets/logo.png" /> 
+    <link rel="stylesheet" href="style.css" /> 
+    <script defer src="script.js"></script> 
   </head>
   <body class="page-contact">
-    <a class="skip-link" href="#main-content">Skip to content</a> <!-- Accessibility skip link -->
+    <a class="skip-link" href="#main-content">Skip to content</a> 
 
     <header>
       <div id="header-left-side">
-        <img src="./assets/logo.png" alt="BookEase Logo" /> <!-- Logo image sa left side sa header -->
-        <h1 class="headertitle">BookEase</h1> <!-- Website title sa header -->
+        <img src="./assets/logo.png" alt="BookEase Logo" /> 
+        <h1 class="headertitle">BookEase</h1> 
       </div>
 
-      <!--Navigation Bar-->
       <nav id="icons" aria-label="Primary navigation"> 
-        <a href="home.php" class="nav-link">Home</a> <!-- Link to home page -->
-        <a href="services.php" class="nav-link">Services</a> <!-- Link to services page -->
-        <a href="contact.php" class="nav-link active">Contact</a> <!-- Link to contact page but naa nata currently ari-->
-        <a href="my_bookings.php" class="nav-link">My Bookings</a> <!-- Link to help page -->
-        <a href="logout.php" id="logout-link">Logout</a> <!-- Link to logout -->
+        <a href="home.php" class="nav-link">Home</a> 
+        <a href="services.php" class="nav-link">Services</a> 
+        <a href="contact.php" class="nav-link active">Contact</a> 
+        <a href="my_bookings.php" class="nav-link">My Bookings</a> 
+        <a href="logout.php" id="logout-link">Logout</a> 
       </nav>
     </header>
 
-    <main id="main-content" class="contact-main" role="main"> <!-- Ari na part ang introductory text tahay -->
+    <main id="main-content" class="contact-main" role="main"> 
       <section class="contact-section">
         <h1>Have questions in mind?</h1>
         <p>
           We’re here to help! Reach out to us directly through our support page or
           contact one of our trusted partners below.
         </p>
+
+        <?php if(isset($_SESSION['contact_success'])): ?>
+            <p style="color: green; font-weight: bold; margin-top: 20px;">
+                <?= $_SESSION['contact_success']; unset($_SESSION['contact_success']); ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION['contact_error'])): ?>
+            <p style="color: red; font-weight: bold; margin-top: 20px;">
+                <?= $_SESSION['contact_error']; unset($_SESSION['contact_error']); ?>
+            </p>
+        <?php endif; ?>
       </section>
 
       <section class="faq-section">
         <h3>Frequently Asked Questions</h3>
-
-        <!-- mao nani ang FAQ table using TABLE-->
         <div class="table-wrap">
           <table class="faq-table" summary="Frequently asked questions and answers">
-            <thead> <!-- Table header for FAQ questions and answers -->
+            <thead> 
               <tr>
                 <th scope="col">Question</th>
                 <th scope="col">Answer</th>
@@ -74,16 +83,15 @@
             </tbody>
           </table>
         </div>
-    </section>
+      </section>
 
-    <div>
-        <p class="more-help">Still need help? Open a support ticket.</p>
-    </div>
+      <div>
+          <p class="more-help">Still need help? Open a support ticket.</p>
+      </div>
 
-      <section class="contact-block" aria-labelledby="support-title"> <!-- Contact block section with aria-labelledby for accessibility tahay-->
+      <section class="contact-block" aria-labelledby="support-title"> 
         <h2 id="support-title">Contact Our Support Team</h2>
 
-        <!-- nag use kog iframe para sa support page para tahay naa koy iframe-->
         <div class="iframe-wrapper" aria-hidden="false">
           <iframe
             src="https://partnerhub.agoda.com/contacting-us-for-support/"
@@ -96,26 +104,25 @@
 
         <p>If the interactive page above doesn't load, you can open it directly:</p>
         <p>
-          <a href="https://partnerhub.agoda.com/contacting-us-for-support/" target="_blank" rel="noreferrer noopener">Click here!</a> <!-- link sa Agoda, since wa koy webiste for support-->
+          <a href="https://partnerhub.agoda.com/contacting-us-for-support/" target="_blank" rel="noreferrer noopener">Click here!</a> 
         </p>
 
-        <!-- If not working ang iframe, naay form for their concerns -->
-        <form class="contact-form" method="post" aria-label="Contact form">
+        <form class="contact-form" action="send_message.php" method="post" aria-label="Contact form">
           <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="Full name" />
+          <input id="name" name="name" type="text" placeholder="Full name" required />
 
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" />
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
 
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
 
           <button type="submit">Send message</button>
         </form>
       </section>
     </main>
 
-    <footer> <!-- Footer section -->
+    <footer> 
       © 2025 BookEase | All Rights Reserved
     </footer>
   </body>

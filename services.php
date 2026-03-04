@@ -150,7 +150,7 @@
     <p><img src="./assets/capacity.png" class="room-details"> Group of 6</p>
     <p><img src="./assets/eat.png" class="room-details"> No Inclusions</p>
     <p><img src="./assets/storey.png" class="room-details"> 2nd Floor</p>
-    <p><img src="./assets/money.png" class="room-details"> Php 8,000 per night</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 10,000 per night</p>
     <button class="book-now-btn">Book Now</button>
   </div>
 </div>
@@ -188,7 +188,7 @@
   </div>
 </div>
 
-  <footer> <!-- Footer sa page-->
+  <footer>
     © 2025 BookEase | All Rights Reserved
   </footer>
 </body>
