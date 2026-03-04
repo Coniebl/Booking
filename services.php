@@ -33,48 +33,127 @@
 
       <!-- 4 ra ang room na ako gibutang sir for sample lang -->
 
-      <div class="service-card"> <!-- Individual card every room-->
-        <img src="./assets/two.jpg" class="room-image" alt="Room Image"> <!-- Room image 1-->
-        <h3>MAAYO HOTEL</h3> <!-- Room name 1 using h3 para di dako ang text-->
-        <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p> <!-- Room capacity with icon tahay para chyy-->
-        <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p> <!-- Room breakfast if free ba or di with icon nasad -->
-        <p><img src="./assets/storey.png" class="room-details"> 3rd to 8th floor</p> <!-- Room floor if asa na floor located with icon-->
-        <p><img src="./assets/money.png" class="room-details"> Php 4,500 per night</p> <!-- Room price per nught na sya with icon-->
-        <button class="book-now-btn">Book Now</button> <!-- Book now button if they wanttt-->
-      </div>
+      <div class="services-container" style="flex-wrap: wrap; justify-content: center; gap: 1.8em;"> 
+  <div class="service-card">
+    <img src="./assets/two.jpg" class="room-image" alt="Room Image">
+    <h3>MAAYO HOTEL</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p>
+    <p><img src="./assets/storey.png" class="room-details"> 3rd to 8th floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 4,500 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
 
-      <div class="service-card"> <!-- Individual card every room-->
-        <img src="./assets/one.jpg" class="room-image" alt="Room Image"> <!-- Room image 2-->
-        <h3>NUSTAR DELUXE</h3> <!-- Room name 2 using h3 nasad para di dako ang text-->
-        <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p> <!-- Room capacity with icon tahay para chyy-->
-        <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p> <!-- Room breakfast if free ba or di with icon nasad -->
-        <p><img src="./assets/storey.png" class="room-details"> 10th to 15th floor</p> <!-- Room floor if asa na floor located with icon-->
-        <p><img src="./assets/money.png" class="room-details"> Php 5,000 per night</p> <!-- Room price per nught na sya with icon-->
-        <button class="book-now-btn">Book Now</button> <!-- Book now button if they want na mubook-->
-      </div>
+  <div class="service-card">
+    <img src="./assets/one.jpg" class="room-image" alt="Room Image">
+    <h3>NUSTAR DELUXE</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p>
+    <p><img src="./assets/storey.png" class="room-details"> 10th to 15th floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 5,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
 
-      <div class="service-card"> <!-- Individual card every room-->
-        <img src="./assets/three.jpg" class="room-image" alt="Room Image"> <!-- Room image 3-->
-        <h3>NATIVE CAMP</h3> <!-- Room name 3 using h3 para di dako ang text-->
-        <p><img src="./assets/capacity.png" class="room-details"> For Family Use</p> <!-- Room capacity with icon tahay para chuy-->
-        <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p> <!-- Room breakfast if free ba or di with icon nasad -->
-        <p><img src="./assets/storey.png" class="room-details"> Not Applicable</p> <!-- Room floor if asa na floor located with icon-->
-        <p><img src="./assets/money.png" class="room-details"> Php 7,500 per night</p> <!-- Room price per nught na sya with icon-->
-        <button class="book-now-btn">Book Now</button> <!-- Book now button if they want na mubook-->
-      </div>
+  <div class="service-card">
+    <img src="./assets/three.jpg" class="room-image" alt="Room Image">
+    <h3>NATIVE CAMP</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> For Family Use</p>
+    <p><img src="./assets/eat.png" class="room-details"> Free breakfast included</p>
+    <p><img src="./assets/storey.png" class="room-details"> Not Applicable</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 7,500 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
 
-      <div class="service-card"> <!-- Individual card every room-->
-        <img src="./assets/four.jpg" class="room-image" alt="Room Image"> <!-- Room image 4-->
-        <h3>UBEC PENTHOUSE</h3> <!-- Room name 4 using h3 para di dako ang text-->
-        <p><img src="./assets/capacity.png" class="room-details"> For Family Use</p>  <!-- Room capacity with icon tahay para chuy-->
-        <p><img src="./assets/eat.png" class="room-details"> Can cook inside</p> <!-- Room breakfast if free ba or di with icon nasad -->
-        <p><img src="./assets/storey.png" class="room-details"> 20th to 30th floor</p> <!-- Room floor if asa na floor located with icon-->
-        <p><img src="./assets/money.png" class="room-details"> Php 15,000 per night</p> <!-- Room price per nught na sya with icon-->
-        <button class="book-now-btn">Book Now</button> <!-- Book now button if they want na mubook-->
-      </div>
-    </div>
-  </main>
+  <div class="service-card">
+    <img src="./assets/four.jpg" class="room-image" alt="Room Image">
+    <h3>UBEC PENTHOUSE</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> For Family Use</p>
+    <p><img src="./assets/eat.png" class="room-details"> Can cook inside</p>
+    <p><img src="./assets/storey.png" class="room-details"> 20th to 30th floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 15,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
 
+  <div class="service-card">
+    <img src="./assets/five.jpg" class="room-image" alt="Room Image">
+    <h3>CITY VIEW SUITE</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 4</p>
+    <p><img src="./assets/eat.png" class="room-details"> Breakfast included</p>
+    <p><img src="./assets/storey.png" class="room-details"> 8th Floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 7,500 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/six.jpg" class="room-image" alt="Room Image">
+    <h3>ZEN STUDIO</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> No food included</p>
+    <p><img src="./assets/storey.png" class="room-details"> Ground Floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 3,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/seven.jpg" class="room-image" alt="Room Image">
+    <h3>GARDEN VILLA</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Family size</p>
+    <p><img src="./assets/eat.png" class="room-details"> Buffet included</p>
+    <p><img src="./assets/storey.png" class="room-details"> Not Applicable</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 12,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/eight.jpg" class="room-image" alt="Room Image">
+    <h3>SKYLINE LOFT</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> Mini-bar included</p>
+    <p><img src="./assets/storey.png" class="room-details"> 20th Floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 9,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/nine.jpg" class="room-image" alt="Room Image">
+    <h3>SUNSET BUNGALOW</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> Welcome drinks</p>
+    <p><img src="./assets/storey.png" class="room-details"> Beachfront</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 6,800 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/ten.jpg" class="room-image" alt="Room Image">
+    <h3>MOUNTAIN RETREAT</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 2</p>
+    <p><img src="./assets/eat.png" class="room-details"> Fruits options</p>
+    <p><img src="./assets/storey.png" class="room-details"> Not Applicable</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 5,500 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/eleven.jpg" class="room-image" alt="Room Image">
+    <h3>PINEWOOD CABIN</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Good for 3</p>
+    <p><img src="./assets/eat.png" class="room-details"> Coffee bar</p>
+    <p><img src="./assets/storey.png" class="room-details"> 5th Floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 9,500 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+
+  <div class="service-card">
+    <img src="./assets/four.jpg" class="room-image" alt="Room Image">
+    <h3>IZZ BARKADA</h3>
+    <p><img src="./assets/capacity.png" class="room-details"> Group of 6</p>
+    <p><img src="./assets/eat.png" class="room-details"> No Inclusions</p>
+    <p><img src="./assets/storey.png" class="room-details"> 2nd Floor</p>
+    <p><img src="./assets/money.png" class="room-details"> Php 8,000 per night</p>
+    <button class="book-now-btn">Book Now</button>
+  </div>
+</div>
   <div id="popup" class="popup">
   <div class="popup-content">
     <div id="booking-form-container">
