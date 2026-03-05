@@ -107,20 +107,54 @@
           <a href="https://partnerhub.agoda.com/contacting-us-for-support/" target="_blank" rel="noreferrer noopener">Click here!</a> 
         </p>
 
-        <form class="contact-form" action="send_message.php" method="post" aria-label="Contact form">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="Full name" required />
+<section class="discord-container">
+    <div class="chat-header">
+        <p>This is the start of your direct support history with BookEase.</p>
+    </div>
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+    <div class="message-history" id="message-history">
+        <?php
+        require_once 'config.php'; //
+        $user_email = $_SESSION['email']; //
+        
+        $msg_query = "SELECT name, message, created_at FROM contact_messages WHERE email = ? ORDER BY created_at ASC";
+        $msg_stmt = $conn->prepare($msg_query);
+        
+        if ($msg_stmt) {
+            $msg_stmt->bind_param("s", $user_email);
+            $msg_stmt->execute();
+            $msgs = $msg_stmt->get_result();
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+            if ($msgs->num_rows > 0) {
+                while($msg = $msgs->fetch_assoc()) { ?>
+                    <div class="discord-message">
+                        <div class="avatar">
+                            <img src="./assets/user.png" alt="User"> </div>
+                        <div class="msg-content">
+                            <div class="msg-info">
+                                <span class="msg-author"><?= htmlspecialchars($msg['name']) ?></span>
+                                <span class="msg-date"><?= date('m/d/Y g:i A', strtotime($msg['created_at'])) ?></span>
+                            </div>
+                            <div class="msg-text"><?= nl2br(htmlspecialchars($msg['message'])) ?></div>
+                        </div>
+                    </div>
+                <?php }
+            } else {
+                echo '<p class="empty-chat">No messages yet. Say hello!</p>';
+            }
+            $msg_stmt->close();
+        }
+        ?>
+    </div>
 
-          <button type="submit">Send message</button>
-        </form>
+    <form class="discord-input-area" action="send_message.php" method="post"> <input type="hidden" name="name" value="<?= htmlspecialchars(explode('@', $_SESSION['email'])[0]) ?>">
+        <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['email']) ?>">
+        <textarea name="message" placeholder="Message our support team" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
       </section>
-    </main>
 
     <footer> 
       © 2025 BookEase | All Rights Reserved
