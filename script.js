@@ -2,9 +2,38 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    const loginBoxes = document.querySelectorAll('.form-box'); // Get all form boxes (Login & Signup)
+    const loginBoxes = document.querySelectorAll('.form-box'); 
+    const cancelButtons = document.querySelectorAll('.cancel-booking-btn');
 
-    // 1. Navigation Protection
+    cancelButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const bookingId = btn.dataset.id;
+
+           
+            if (confirm('Are you sure you want to cancel this booking? This action cannot be undone.')) {
+                const formData = new FormData();
+                formData.append('id', bookingId);
+
+                fetch('delete_booking.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Booking cancelled successfully.');
+                        location.reload(); 
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while canceling the booking.');
+                });
+            }
+        });
+    });
     navLinks.forEach(link => {
         link.addEventListener('click', e => {
             if (localStorage.getItem('loggedIn') !== 'true') {

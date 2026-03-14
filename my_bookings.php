@@ -62,14 +62,19 @@ $result = $stmt->get_result();
                     <td><?= htmlspecialchars($row['booking_date']) ?></td>
                     <td><?= htmlspecialchars($row['contact_number']) ?></td>
                     <td>
-                      <button class="edit-btn" 
-                              data-id="<?= $row['id'] ?>"
-                              data-name="<?= htmlspecialchars($row['name']) ?>"
-                              data-pax="<?= $row['number_pax'] ?>"
-                              data-date="<?= $row['booking_date'] ?>"
-                              data-phone="<?= htmlspecialchars($row['contact_number']) ?>">
-                        Edit
-                      </button>
+                        <button class="edit-btn" 
+                                data-id="<?= $row['id'] ?>"
+                                data-name="<?= htmlspecialchars($row['name']) ?>"
+                                data-pax="<?= $row['number_pax'] ?>"
+                                data-date="<?= $row['booking_date'] ?>"
+                                data-phone="<?= htmlspecialchars($row['contact_number']) ?>">
+                            Edit
+                        </button>
+                        <button class="cancel-booking-btn" 
+                                data-id="<?= $row['id'] ?>" 
+                                style="background: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-left: 5px;">
+                            Cancel
+                        </button>
                     </td>
                   </tr>
                 <?php endwhile; ?>
