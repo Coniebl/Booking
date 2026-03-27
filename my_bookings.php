@@ -31,7 +31,7 @@ $result = $stmt->get_result();
         <a href="services.php" class="nav-link">Services</a>
         <a href="contact.php" class="nav-link">Contact</a>
         <a href="my_bookings.php" class="nav-link active">My Bookings</a>
-        <a href="logout.php" id="logout-link">Logout</a>
+        <a href="logout.php" class="nav-link" id="logout-link">Logout</a>
       </nav>
     </header>
 

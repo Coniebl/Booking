@@ -38,21 +38,47 @@ header {
 #header-left-side img { /* para sa logo sa header */
   height: 35px; /* HEIGHT para sa logo, estimated size ra */
 }
-
-#icons { /* Navigation bar sa header */
-  display: flex; /* Flexbox para sa icons */
-  gap: 2em; /* Gap between icons */
+/* --- Unified Navigation & Logout Styling --- */
+#icons {
+  display: flex;
+  gap: 1.2em; 
+  align-items: center;
 }
 
-#icons a { /* Style para sa navigation links */
-  text-decoration: none; /* Remove underline kay samok */
-  color: #333; /* TEXT COLOR */
-  font-weight: 500; /* FONT WEIGHT how thick ang fonts */
-  transition: color 0.3s; /* Smooth color transition on hover */
+/* Base style for all links including Logout */
+#icons a.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 25px; 
+  transition: all 0.3s ease;
 }
 
-#icons a:hover { /* Hover effect for nav links */
-  color: #000; /* Darker color on hover */
+/* Hover Effect for all buttons */
+#icons a.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+/* Active State for the current page */
+#icons a.nav-link.active {
+  color: #000;
+  font-weight: 700;
+}
+
+/* Modern indicator bar for the active page */
+#icons a.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 3px;
+  background-color: #111;
+  border-radius: 10px;
 }
 
 /* DISABLED LINK STATE sa tanang unless maglogin */
